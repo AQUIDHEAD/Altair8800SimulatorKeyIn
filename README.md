@@ -1,1 +1,5 @@
-"# Altair8800SimulatorKeyIn" 
+This is a program that makes use of the pynput and OAuth libraries for python. It acceses a google spreadsheet of your choice and reads the input in a column and flips the switches of the online simulator for the Altair 8800 linked [here](https://s2js.com/altair/). Its not complete yet and Im making modifications to it. If you are on Mac you will need admin to enable the accesibility options that pynput requires otherwise your operating sytem of choice should work as long as you have a 1920 x 1080 screen (support for more screen resolutions/sizes coming soon ;) ). You should also import the libraries at the top of the program. 
+
+Important !
+
+Once you run the program, make sure you click into the browser with the Altair8800 already loaded. Make sure that you turned off and on the Altair8800 simulator before runing the proggram
