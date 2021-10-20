@@ -95,18 +95,20 @@ def inputDataSwitch(instruction):
             counter = counter   # used to handle white spaces or other characters
 
 # the proggram begings
+counter = 0
 
 for index, elem in enumerate(getValues):
-    counter = 0
     if (index + 1 < len(getValues) and index - 1 >= 0):    # get the next and current element from getValues
         curr_el = str(elem)
         next_el = str(getValues[index + 1])
         if(curr_el != 'DEPOSIT' or curr_el != 'DEPOSIT NEXT' or curr_el != 'RESET' or curr_el != 'EXAMINE'):    # check if we are in a binary number and if we are then we input that binary number
             print('we are in a binary')
             inputDataSwitch(curr_el)
-            if(next_el == 'DEPOSIT' or next_el == 'DEPOSIT NEXT' or next_el == 'RESET'  or next_el != 'EXAMINE'):
-                print('the next elemet is a instruction, lets execute it ')                    
-                returnSwitch(next_el)                                                     # check if the next element is a instruction, execute that instruction and reset the data switches back to their original state
-                print('its been executed, now lets reset the data swiches')
-                inputDataSwitch(curr_el)
+            if(counter == 0):
+                returnSwitch('RESET')
+            if(counter == 1):
+                returnSwitch('DEPOSIT')
+            if(counter > 1):
+                returnSwitch('DEPOSIT NEXT')
 
+    counter += 1
